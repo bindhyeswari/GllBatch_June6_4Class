@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        Object.create_v2 = function (obj){
+            function Fn(){
+
+            }
+
+            Fn.prototype = obj;
+
+            return new Fn();
+        };
+
+        var x = {
+            id: 32
+        };
+
+        var y = Object.create_v2(x);
+
+        console.log(y.id);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

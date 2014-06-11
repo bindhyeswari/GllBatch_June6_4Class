@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        Object.prototype.propw = 'asdf';
+        var obj = {
+            propx: 'asdf'
+        };
+        var level1 = new Object.create(obj);
+        level1.propy = 'asdf';
+        var level2 = Object.create(level1);
+        level2.propz = 'asdf';
+
+        console.log('The prototypal chain is ... \n' + fn(level2));
+
+
+        function fn(obj){
+
+            var parent = Object.getPrototypeOf(obj);
+            console.log(obj);
+            if (parent) {
+                return JSON.stringify(parent) + '\n' + fn(parent);
+            } else {
+                return '';
+            }
+
+        }
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        var x = {
+            id: 32,
+            city: 'San Jose'
+        };
+
+        Object.defineProperty(x, 'id', {
+            configurable: false,
+            writable: false
+        });
+
+
+        // developer 2
+
+
+        // change the id of the city
+        x.id = 64;
+
+        // console log the id of x
+        console.log(Object.getOwnPropertyDescriptor(x, 'id'));
+
+        var obj = {
+            x: 32
+        };
+
+        // create 30 properties of an object
+        var someObj = {};
+        for (var i = 1; i < 31; i++) {
+            var prop = 'prop' + i;
+            someObj[prop] = 'asdf';
+        }
+        console.log(someObj);
+
+        Object.defineProperty(someObj, 'prop2', {
+            enumerable: false
+        });
+
+        console.log('is prop2 enumerable? ' + someObj.propertyIsEnumerable('prop2'));
+
+
+        // loop to write the properties
+
+        for (var prop in someObj){
+            console.log(prop);
+        }
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
